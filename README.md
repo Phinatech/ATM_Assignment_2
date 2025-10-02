@@ -57,12 +57,12 @@ Login successful!
 5. Logout
 
 Enter choice: 2
-Enter amount to deposit: 500
-Deposit successful. New balance: 1500
+Enter amount to deposit: 5000
+Deposit successful. New balance: 105000
 
 Enter choice: 4
 Transaction History:
-- Deposited 500
+- Deposited 5000
 
 Enter choice: 5
 Logging out...
