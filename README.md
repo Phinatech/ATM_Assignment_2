@@ -27,7 +27,7 @@ This project simulates an Automated Teller Machine (ATM) system using the C prog
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/<your-username>/ATM_Assignment_2.git
+   git clone https://github.com/Phinatech/ATM_Assignment_2.git
    cd ATM_Assignment_2
    ```
 2. Compile the program using `gcc`:
@@ -45,7 +45,7 @@ This project simulates an Automated Teller Machine (ATM) system using the C prog
 
 ```
 Welcome to the ATM System
-Enter username: user1
+Enter username: Judith
 Enter PIN: 1234
 
 Login successful!
