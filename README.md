@@ -33,7 +33,7 @@ This project simulates an Automated Teller Machine (ATM) system using the C prog
 2. Compile the program using `gcc`:
 
    ```bash
-   gcc atm.c -o atm
+   gcc -std=c11 -Wall -Wextra -O2 main.c atm.c -o atm
    ```
 3. Run the executable:
 
