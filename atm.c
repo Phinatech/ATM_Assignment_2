@@ -8,7 +8,7 @@
 #define MAX_USERS           5
 #define MAX_NAME            20
 #define PIN_LEN             4
-#define MAX_LOGIN_TRIES     2
+#define MAX_LOGIN_TRIES     2   
 
 #define MAX_TRANSACTIONS    10
 #define TRANSACTION_LENGTH  100
@@ -31,7 +31,7 @@ static void clear_input_buffer(void) {
 static int get_user_choice(void) {
     int choice;
     while (scanf("%d", &choice) != 1) {
-        printf("❌ Invalid input! Please enter a number: ");
+        printf("Invalid input! Please enter a number: ");
         clear_input_buffer();
     }
     clear_input_buffer();
@@ -81,7 +81,7 @@ static double get_amount(const char* operation) {
     double amount;
     printf("Enter amount to %s: ", operation);
     while (scanf("%lf", &amount) != 1) {
-        printf("❌ Invalid input! Please enter a valid amount: ");
+        printf("Invalid input! Please enter a valid amount: ");
         clear_input_buffer();
     }
     clear_input_buffer();
@@ -108,11 +108,11 @@ static double action_check_balance(int user_idx) {
 static void action_deposit(int user_idx) {
     double amount = get_amount("deposit");
     if (amount <= 0) {
-        printf("❌ Invalid amount! Deposit amount must be positive.\n\n");
+        printf("Invalid amount! Deposit amount must be positive.\n\n");
         return;
     }
     balances[user_idx] += amount;
-    printf("✅ Successfully deposited %.2f RWF\n", amount);
+    printf("Successfully deposited %.2f RWF\n", amount);
     printf("Your new balance is: %.2f RWF\n\n", balances[user_idx]);
     log_transaction(user_idx, "DEPOSIT", amount);
 }
@@ -120,18 +120,18 @@ static void action_deposit(int user_idx) {
 static void action_withdraw(int user_idx) {
     double amount = get_amount("withdraw");
     if (amount <= 0) {
-        printf("❌ Invalid amount! Withdrawal amount must be positive.\n\n");
+        printf("Invalid amount! Withdrawal amount must be positive.\n\n");
         return;
     }
     if (amount > balances[user_idx]) {
-        printf("❌ Insufficient funds!\n");
+        printf("Insufficient funds!\n");
         printf("Your current balance is: %.2f RWF\n", balances[user_idx]);
         printf("You cannot withdraw %.2f RWF\n\n", amount);
         log_transaction(user_idx, "WITHDRAWAL FAILED", amount);
         return;
     }
     balances[user_idx] -= amount;
-    printf("✅ Successfully withdrew %.2f RWF\n", amount);
+    printf("Successfully withdrew %.2f RWF\n", amount);
     printf("Your new balance is: %.2f RWF\n\n", balances[user_idx]);
     log_transaction(user_idx, "WITHDRAWAL", amount);
 }
@@ -185,7 +185,7 @@ int atm_login(void) {
             int left = MAX_LOGIN_TRIES - attempt;
             if (left > 0) {
                 printf("Unknown user. You have %d attempt%s left.\n", left, left==1?"":"s");
-                continue;
+                continue; 
             } else {
                 printf("Too many failed attempts. Access denied.\n");
                 return -1;
@@ -203,7 +203,7 @@ int atm_login(void) {
             if (left > 0) {
                 printf("PIN must be exactly 4 digits. You have %d attempt%s left.\n",
                        left, left==1?"":"s");
-                continue;
+                continue; 
             } else {
                 printf("Too many failed attempts. Access denied.\n");
                 return -1;
@@ -214,7 +214,7 @@ int atm_login(void) {
             int left = MAX_LOGIN_TRIES - attempt;
             if (left > 0) {
                 printf("Incorrect PIN. You have %d attempt%s left.\n", left, left==1?"":"s");
-                continue;
+                continue; 
             } else {
                 printf("Too many failed attempts. Access denied.\n");
                 return -1;
@@ -275,7 +275,7 @@ void atm_session(int user_idx) {
                 printf("Goodbye, %s!\n\n", usernames[user_idx]);
                 break;
             default:
-                printf("\n❌ Invalid choice! Please select 1-5.\n\n");
+                printf("\n Invalid choice! Please select 1-5.\n\n");
                 break;
         }
 
