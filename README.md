@@ -45,7 +45,7 @@ This project simulates an Automated Teller Machine (ATM) system using the C prog
 
 ```
 Welcome to the ATM System
-Enter username: Judith
+Enter username: mike
 Enter PIN: 1234
 
 Login successful!
